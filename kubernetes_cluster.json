@@ -195,7 +195,7 @@
           "noDataState": "alerting",
           "notifications": [
             {
-              "uid": "Znydomh7k"
+              "uid": "k8sdef"
             }
           ]
         },
@@ -328,7 +328,7 @@
           "noDataState": "alerting",
           "notifications": [
             {
-              "uid": "Znydomh7k"
+              "uid": "k8sdef"
             }
           ]
         },
@@ -470,7 +470,7 @@
           "noDataState": "alerting",
           "notifications": [
             {
-              "uid": "Znydomh7k"
+              "uid": "k8sdef"
             }
           ]
         },
@@ -613,7 +613,7 @@
           "noDataState": "alerting",
           "notifications": [
             {
-              "uid": "Znydomh7k"
+              "uid": "k8sdef"
             }
           ]
         },
