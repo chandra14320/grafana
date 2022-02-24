@@ -4732,7 +4732,7 @@
         "noDataState": "alerting",
         "notifications": [
           {
-            "uid": "k8sigt"
+            "uid": "k8sdef"
           }
         ]
       },
