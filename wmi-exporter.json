@@ -16,8 +16,7 @@
   "editable": true,
   "gnetId": 14694,
   "graphTooltip": 1,
-  "id": 4,
-  "iteration": 1645422099551,
+  "iteration": 1645796433482,
   "links": [],
   "panels": [
     {
@@ -467,12 +466,12 @@
         "for": "1m",
         "frequency": "1m",
         "handler": 1,
-        "message": "This is for test",
+        "message": "",
         "name": "Autotask logs alert",
         "noDataState": "alerting",
         "notifications": [
           {
-            "uid": "wmidef"
+            "uid": "testdef"
           }
         ]
       },
@@ -480,7 +479,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -670,6 +669,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:1457",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -697,6 +697,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:1417",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -705,6 +706,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:1418",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2933,5 +2935,5 @@
   "timezone": "browser",
   "title": "Windows Exporter Dashboard",
   "uid": "IV0hu1m7z",
-  "version": 63
+  "version": 1
 }
