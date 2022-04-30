@@ -23,8 +23,8 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 10991,
   "graphTooltip": 1,
-  "id": 2,
-  "iteration": 1651293750990,
+  "id": 6,
+  "iteration": 1651353023526,
   "links": [
     {
       "icon": "doc",
@@ -64,7 +64,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#37872D"
+                "color": "#37872D",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -114,10 +115,6 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -139,7 +136,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#C4162A"
+                "color": "#C4162A",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -181,8 +179,14 @@
       "pluginVersion": "8.4.5",
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_published_total[60s]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "rate(rabbitmq_channel_messages_published_total[5m]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{namespace=\"$namespace\"}",
           "format": "time_series",
+          "hide": false,
           "instant": false,
           "interval": "",
           "intervalFactor": 1,
@@ -219,7 +223,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#C4162A"
+                "color": "#C4162A",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -298,7 +303,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#C4162A"
+                "color": "#C4162A",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -378,7 +384,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#C4162A"
+                "color": "#C4162A",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -457,7 +464,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#37872D"
+                "color": "#37872D",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -512,10 +520,6 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -537,7 +541,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#C4162A"
+                "color": "#C4162A",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -579,10 +584,16 @@
       "pluginVersion": "8.4.5",
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_redelivered_total[60s]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_channel_messages_delivered_total[60s]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_channel_messages_delivered_ack_total[60s]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_channel_get_total[60s]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\nsum(rate(rabbitmq_channel_get_ack_total[60s]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "(rate(rabbitmq_channel_messages_redelivered_total[5m]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n(rate(rabbitmq_channel_messages_delivered_total[5m]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n(rate(rabbitmq_channel_messages_delivered_ack_total[5m]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n(rate(rabbitmq_channel_get_total[5m]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n(rate(rabbitmq_channel_get_ack_total[5m]) * on(instance) group_left(rabbitmq_cluster) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
           "format": "time_series",
           "hide": false,
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
           "refId": "A"
@@ -617,7 +628,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#C4162A"
+                "color": "#C4162A",
+                "value": null
               },
               {
                 "color": "#1F60C4",
@@ -683,7 +695,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -766,7 +779,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "#1F60C4"
+                "color": "#1F60C4",
+                "value": null
               },
               {
                 "color": "#37872D",
@@ -820,7 +834,7 @@
       "type": "stat"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
@@ -832,806 +846,807 @@
         "y": 6
       },
       "id": 4,
-      "panels": [],
-      "title": "NODES",
-      "type": "row"
-    },
-    {
-      "columns": [],
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "fontSize": "100%",
-      "gridPos": {
-        "h": 4,
-        "w": 24,
-        "x": 0,
-        "y": 7
-      },
-      "id": 69,
-      "links": [],
-      "scroll": true,
-      "showHeader": true,
-      "sort": {
-        "col": 8,
-        "desc": false
-      },
-      "styles": [
+      "panels": [
         {
-          "alias": "Erlang/OTP",
-          "align": "auto",
-          "colors": [
-            "rgba(50, 172, 45, 0.97)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(245, 54, 54, 0.9)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "link": false,
-          "mappingType": 1,
-          "pattern": "erlang_version",
-          "thresholds": [
-            ""
-          ],
-          "type": "string",
-          "unit": "none"
-        },
-        {
-          "alias": "RabbitMQ",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "rabbitmq_version",
-          "thresholds": [
-            ""
-          ],
-          "type": "string",
-          "unit": "none"
-        },
-        {
-          "alias": "Host",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "instance",
-          "preserveFormat": false,
-          "thresholds": [],
-          "type": "string",
-          "unit": "short",
-          "valueMaps": []
-        },
-        {
-          "alias": "Node name",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "link": false,
-          "mappingType": 1,
-          "pattern": "rabbitmq_node",
-          "thresholds": [
-            ""
-          ],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Time",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "Value",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "job",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short"
-        },
-        {
-          "alias": "Cluster",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "rabbitmq_cluster",
-          "thresholds": [],
-          "type": "hidden",
-          "unit": "short",
-          "valueMaps": []
-        },
-        {
-          "alias": "prometheus.erl",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "prometheus_client_version",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        },
-        {
-          "alias": "rabbitmq_prometheus",
-          "align": "auto",
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "dateFormat": "YYYY-MM-DD HH:mm:ss",
-          "decimals": 2,
-          "mappingType": 1,
-          "pattern": "prometheus_plugin_version",
-          "thresholds": [],
-          "type": "string",
-          "unit": "short"
-        }
-      ],
-      "targets": [
-        {
-          "expr": "rabbitmq_build_info * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
-          "format": "table",
-          "instant": true,
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "transform": "table",
-      "type": "table-old"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "description": "If the value is zero or less, the memory alarm will be triggered and all publishing connections across all cluster nodes will be blocked.\n\nThis value can temporarily go negative because the memory alarm is triggered with a slight delay.\n\nThe kernel's view of the amount of memory used by the node can differ from what the node itself can observe. This means that this value can be negative for a sustained period of time.\n\nBy default nodes use resident set size (RSS) to compute how much memory they use. This strategy can be changed (see the guides below).\n\n* [Alarms](https://www.rabbitmq.com/alarms.html)\n* [Memory Alarms](https://www.rabbitmq.com/memory.html)\n* [Reasoning About Memory Use](https://www.rabbitmq.com/memory-use.html)\n* [Blocked Connection Notifications](https://www.rabbitmq.com/connection-blocked.html)",
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 11
-      },
-      "hiddenSeries": false,
-      "id": 7,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
+          "columns": [],
           "datasource": {
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "(rabbitmq_resident_memory_limit_bytes * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_resident_memory_bytes * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
-          "format": "time_series",
-          "hide": false,
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "$$hashKey": "object:598",
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 536870912,
-          "yaxis": "left"
+          "fontSize": "100%",
+          "gridPos": {
+            "h": 4,
+            "w": 24,
+            "x": 0,
+            "y": 7
+          },
+          "id": 69,
+          "links": [],
+          "scroll": true,
+          "showHeader": true,
+          "sort": {
+            "col": 8,
+            "desc": false
+          },
+          "styles": [
+            {
+              "alias": "Erlang/OTP",
+              "align": "auto",
+              "colors": [
+                "rgba(50, 172, 45, 0.97)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(245, 54, 54, 0.9)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "link": false,
+              "mappingType": 1,
+              "pattern": "erlang_version",
+              "thresholds": [
+                ""
+              ],
+              "type": "string",
+              "unit": "none"
+            },
+            {
+              "alias": "RabbitMQ",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "rabbitmq_version",
+              "thresholds": [
+                ""
+              ],
+              "type": "string",
+              "unit": "none"
+            },
+            {
+              "alias": "Host",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "instance",
+              "preserveFormat": false,
+              "thresholds": [],
+              "type": "string",
+              "unit": "short",
+              "valueMaps": []
+            },
+            {
+              "alias": "Node name",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "link": false,
+              "mappingType": 1,
+              "pattern": "rabbitmq_node",
+              "thresholds": [
+                ""
+              ],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "alias": "",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Time",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "alias": "",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "Value",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "alias": "",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "job",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short"
+            },
+            {
+              "alias": "Cluster",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "rabbitmq_cluster",
+              "thresholds": [],
+              "type": "hidden",
+              "unit": "short",
+              "valueMaps": []
+            },
+            {
+              "alias": "prometheus.erl",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "prometheus_client_version",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            },
+            {
+              "alias": "rabbitmq_prometheus",
+              "align": "auto",
+              "colors": [
+                "rgba(245, 54, 54, 0.9)",
+                "rgba(237, 129, 40, 0.89)",
+                "rgba(50, 172, 45, 0.97)"
+              ],
+              "dateFormat": "YYYY-MM-DD HH:mm:ss",
+              "decimals": 2,
+              "mappingType": 1,
+              "pattern": "prometheus_plugin_version",
+              "thresholds": [],
+              "type": "string",
+              "unit": "short"
+            }
+          ],
+          "targets": [
+            {
+              "expr": "rabbitmq_build_info * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
+              "format": "table",
+              "instant": true,
+              "intervalFactor": 1,
+              "refId": "A"
+            }
+          ],
+          "transform": "table",
+          "type": "table-old"
         },
         {
-          "$$hashKey": "object:599",
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 0,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "Memory available before publishers blocked",
-      "tooltip": {
-        "shared": true,
-        "sort": 1,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:570",
-          "decimals": 1,
-          "format": "bytes",
-          "logBase": 1,
-          "show": true
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "If the value is zero or less, the memory alarm will be triggered and all publishing connections across all cluster nodes will be blocked.\n\nThis value can temporarily go negative because the memory alarm is triggered with a slight delay.\n\nThe kernel's view of the amount of memory used by the node can differ from what the node itself can observe. This means that this value can be negative for a sustained period of time.\n\nBy default nodes use resident set size (RSS) to compute how much memory they use. This strategy can be changed (see the guides below).\n\n* [Alarms](https://www.rabbitmq.com/alarms.html)\n* [Memory Alarms](https://www.rabbitmq.com/memory.html)\n* [Reasoning About Memory Use](https://www.rabbitmq.com/memory-use.html)\n* [Blocked Connection Notifications](https://www.rabbitmq.com/connection-blocked.html)",
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 7,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "expr": "(rabbitmq_resident_memory_limit_bytes * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_resident_memory_bytes * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+              "format": "time_series",
+              "hide": false,
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "$$hashKey": "object:598",
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 536870912,
+              "yaxis": "left"
+            },
+            {
+              "$$hashKey": "object:599",
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 0,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "Memory available before publishers blocked",
+          "tooltip": {
+            "shared": true,
+            "sort": 1,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:570",
+              "decimals": 1,
+              "format": "bytes",
+              "logBase": 1,
+              "show": true
+            },
+            {
+              "$$hashKey": "object:571",
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
         },
         {
-          "$$hashKey": "object:571",
-          "format": "short",
-          "logBase": 1,
-          "show": true
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "This metric is reported for the partition where the RabbitMQ data directory is stored.\n\nIf the value is zero or less, the disk alarm will be triggered and all publishing connections across all cluster nodes will be blocked.\n\nThis value can temporarily go negative because the free disk space alarm is triggered with a slight delay.\n\n* [Alarms](https://www.rabbitmq.com/alarms.html)\n* [Disk Space Alarms](https://www.rabbitmq.com/disk-alarms.html)\n* [Disk Space](https://www.rabbitmq.com/production-checklist.html#resource-limits-disk-space)\n* [Persistence Configuration](https://www.rabbitmq.com/persistence-conf.html)\n* [Blocked Connection Notifications](https://www.rabbitmq.com/connection-blocked.html)",
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 12,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 8,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "rabbitmq_disk_space_available_bytes * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 1073741824,
+              "yaxis": "left"
+            },
+            {
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 5368709120,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "Disk space available before publishers blocked",
+          "tooltip": {
+            "shared": true,
+            "sort": 1,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 1,
+              "format": "bytes",
+              "logBase": 1,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "When this value reaches zero, new connections will not be accepted and disk write operations may fail.\n\nClient libraries, peer nodes and CLI tools will not be able to connect when the node runs out of available file descriptors.\n\n* [Open File Handles Limit](https://www.rabbitmq.com/production-checklist.html#resource-limits-file-handle-limit)",
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 4,
+            "w": 4,
+            "x": 20,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 2,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(rabbitmq_process_max_fds * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_open_fds * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 500,
+              "yaxis": "left"
+            },
+            {
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 1000,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "File descriptors available",
+          "tooltip": {
+            "shared": true,
+            "sort": 1,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": -1,
+              "format": "none",
+              "label": "",
+              "logBase": 1,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "When this value reaches zero, new connections will not be accepted.\n\nClient libraries, peer nodes and CLI tools will not be able to connect when the node runs out of available file descriptors.\n\n* [Networking and RabbitMQ](https://www.rabbitmq.com/networking.html)",
+          "fill": 0,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 4,
+            "w": 4,
+            "x": 20,
+            "y": 15
+          },
+          "hiddenSeries": false,
+          "id": 5,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(rabbitmq_process_max_tcp_sockets * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_open_tcp_sockets * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 500,
+              "yaxis": "left"
+            },
+            {
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "lt",
+              "value": 1000,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "TCP sockets available",
+          "tooltip": {
+            "shared": true,
+            "sort": 1,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": -1,
+              "format": "none",
+              "logBase": 1,
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
         }
       ],
-      "yaxis": {
-        "align": false
-      }
+      "title": "NODES",
+      "type": "row"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "This metric is reported for the partition where the RabbitMQ data directory is stored.\n\nIf the value is zero or less, the disk alarm will be triggered and all publishing connections across all cluster nodes will be blocked.\n\nThis value can temporarily go negative because the free disk space alarm is triggered with a slight delay.\n\n* [Alarms](https://www.rabbitmq.com/alarms.html)\n* [Disk Space Alarms](https://www.rabbitmq.com/disk-alarms.html)\n* [Disk Space](https://www.rabbitmq.com/production-checklist.html#resource-limits-disk-space)\n* [Persistence Configuration](https://www.rabbitmq.com/persistence-conf.html)\n* [Blocked Connection Notifications](https://www.rabbitmq.com/connection-blocked.html)",
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 8,
-        "w": 8,
-        "x": 12,
-        "y": 11
-      },
-      "hiddenSeries": false,
-      "id": 8,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rabbitmq_disk_space_available_bytes * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 1073741824,
-          "yaxis": "left"
-        },
-        {
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 5368709120,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "Disk space available before publishers blocked",
-      "tooltip": {
-        "shared": true,
-        "sort": 1,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 1,
-          "format": "bytes",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "When this value reaches zero, new connections will not be accepted and disk write operations may fail.\n\nClient libraries, peer nodes and CLI tools will not be able to connect when the node runs out of available file descriptors.\n\n* [Open File Handles Limit](https://www.rabbitmq.com/production-checklist.html#resource-limits-file-handle-limit)",
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 11
-      },
-      "hiddenSeries": false,
-      "id": 2,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "(rabbitmq_process_max_fds * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_open_fds * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 500,
-          "yaxis": "left"
-        },
-        {
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 1000,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "File descriptors available",
-      "tooltip": {
-        "shared": true,
-        "sort": 1,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": -1,
-          "format": "none",
-          "label": "",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "When this value reaches zero, new connections will not be accepted.\n\nClient libraries, peer nodes and CLI tools will not be able to connect when the node runs out of available file descriptors.\n\n* [Networking and RabbitMQ](https://www.rabbitmq.com/networking.html)",
-      "fill": 0,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 4,
-        "w": 4,
-        "x": 20,
-        "y": 15
-      },
-      "hiddenSeries": false,
-      "id": 5,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "(rabbitmq_process_max_tcp_sockets * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) -\n(rabbitmq_process_open_tcp_sockets * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 500,
-          "yaxis": "left"
-        },
-        {
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "lt",
-          "value": 1000,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "TCP sockets available",
-      "tooltip": {
-        "shared": true,
-        "sort": 1,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": -1,
-          "format": "none",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
@@ -1640,276 +1655,279 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 19
+        "y": 7
       },
       "id": 27,
-      "panels": [],
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Total number of ready messages ready to be delivered to consumers.\n\nAim to keep this value as low as possible. RabbitMQ behaves best when messages are flowing through it. It's OK for publishers to occasionally outpace consumers, but the expectation is that consumers will eventually process all ready messages.\n\nIf this metric keeps increasing, your system will eventually run out of memory and/or disk space. Consider using TTL or Queue Length Limit to prevent unbounded message growth.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Consumers](https://www.rabbitmq.com/consumers.html)\n* [Queue Length Limit](https://www.rabbitmq.com/maxlength.html)\n* [Time-To-Live and Expiration](https://www.rabbitmq.com/ttl.html)",
+          "fill": 10,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 8
+          },
+          "hiddenSeries": false,
+          "id": 9,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(rabbitmq_queue_messages_ready * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeRegions": [],
+          "title": "Messages ready to be delivered to consumers",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 0,
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "The total number of messages that are either in-flight to consumers, currently being processed by consumers or simply waiting for the consumer acknowledgements to be processed by the queue. Until the queue processes the message acknowledgement, the message will remain unacknowledged.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Confirms and Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)",
+          "fill": 10,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 8
+          },
+          "hiddenSeries": false,
+          "id": 19,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(rabbitmq_queue_messages_unacked * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+              "format": "time_series",
+              "instant": false,
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeRegions": [],
+          "title": "Messages pending consumer acknowledgement",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:5270",
+              "decimals": 0,
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:5271",
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        }
+      ],
       "title": "QUEUED MESSAGES",
       "type": "row"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "Total number of ready messages ready to be delivered to consumers.\n\nAim to keep this value as low as possible. RabbitMQ behaves best when messages are flowing through it. It's OK for publishers to occasionally outpace consumers, but the expectation is that consumers will eventually process all ready messages.\n\nIf this metric keeps increasing, your system will eventually run out of memory and/or disk space. Consider using TTL or Queue Length Limit to prevent unbounded message growth.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Consumers](https://www.rabbitmq.com/consumers.html)\n* [Queue Length Limit](https://www.rabbitmq.com/maxlength.html)\n* [Time-To-Live and Expiration](https://www.rabbitmq.com/ttl.html)",
-      "fill": 10,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 0,
-        "y": 20
-      },
-      "hiddenSeries": false,
-      "id": 9,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rabbitmq_queue_messages_ready * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Messages ready to be delivered to consumers",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "The total number of messages that are either in-flight to consumers, currently being processed by consumers or simply waiting for the consumer acknowledgements to be processed by the queue. Until the queue processes the message acknowledgement, the message will remain unacknowledged.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Confirms and Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)",
-      "fill": 10,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 20
-      },
-      "hiddenSeries": false,
-      "id": 19,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rabbitmq_queue_messages_unacked * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Messages pending consumer acknowledgement",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
@@ -1919,7 +1937,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 8
       },
       "id": 11,
       "panels": [],
@@ -1931,10 +1949,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The incoming message rate before any routing rules are applied.\n\nIf this value is lower than the number of messages published to queues, it may indicate that some messages are delivered to more than one queue.\n\nIf this value is higher than the number of messages published to queues, messages cannot be routed and will either be dropped or returned to publishers.\n\n* [Publishers](https://www.rabbitmq.com/publishers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -1942,7 +1956,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 26
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 13,
@@ -2016,9 +2030,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_published_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_published_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2040,6 +2060,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:12114",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -2048,6 +2069,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:12115",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2062,10 +2084,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages confirmed by the broker to publishers. Publishers must opt-in to receive message confirmations.\n\nIf this metric is consistently at zero it may suggest that publisher confirms are not used by clients. The safety of published messages is likely to be at risk.\n\n* [Publisher Confirms](https://www.rabbitmq.com/confirms.html#publisher-confirms)\n* [Publisher Confirms and Data Safety](https://www.rabbitmq.com/publishers.html#data-safety)\n* [When Will Published Messages Be Confirmed by the Broker?](https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed)",
       "fill": 10,
       "fillGradient": 0,
@@ -2073,7 +2091,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 26
+        "y": 9
       },
       "hiddenSeries": false,
       "id": 18,
@@ -2147,9 +2165,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_confirmed_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_confirmed_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2171,6 +2195,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:12347",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -2179,6 +2204,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:12348",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2193,10 +2219,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages received from publishers and successfully routed to the master queue replicas.\n\n* [Queues](https://www.rabbitmq.com/queues.html)\n* [Publishers](https://www.rabbitmq.com/publishers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -2204,7 +2226,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 31
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 61,
@@ -2278,9 +2300,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_queue_messages_published_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_queue_messages_published_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2302,6 +2330,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:12503",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -2310,6 +2339,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:12504",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2324,10 +2354,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages received from publishers that have publisher confirms enabled and the broker has not confirmed yet.\n\n* [Publishers](https://www.rabbitmq.com/publishers.html)\n* [Confirms and Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [When Will Published Messages Be Confirmed by the Broker?](https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed)",
       "fill": 10,
       "fillGradient": 0,
@@ -2335,7 +2361,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 31
+        "y": 14
       },
       "hiddenSeries": false,
       "id": 12,
@@ -2409,9 +2435,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_unconfirmed[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_unconfirmed[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2433,6 +2465,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:12890",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -2441,6 +2474,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:12891",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2455,10 +2489,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages that cannot be routed and are dropped. \n\nAny value above zero means message loss and likely suggests a routing problem on the publisher end.\n\n* [Unroutable Message Handling](https://www.rabbitmq.com/publishers.html#unroutable)",
       "fill": 10,
       "fillGradient": 0,
@@ -2466,7 +2496,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 36
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 34,
@@ -2503,9 +2533,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_unroutable_dropped_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_unroutable_dropped_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2513,6 +2549,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:12997",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -2536,6 +2573,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:12969",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -2543,6 +2581,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:12970",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2557,10 +2596,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages that cannot be routed and are returned back to publishers.\n\nSustained values above zero may indicate a routing problem on the publisher end.\n\n* [Unroutable Message Handling](https://www.rabbitmq.com/publishers.html#unroutable)\n* [When Will Published Messages Be Confirmed by the Broker?](https://www.rabbitmq.com/confirms.html#when-publishes-are-confirmed)",
       "fill": 10,
       "fillGradient": 0,
@@ -2568,7 +2603,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 36
+        "y": 19
       },
       "hiddenSeries": false,
       "id": 16,
@@ -2605,9 +2640,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_unroutable_returned_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_unroutable_returned_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2615,6 +2656,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:13082",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -2638,6 +2680,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13054",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -2645,6 +2688,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13055",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2664,7 +2708,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 24
       },
       "id": 29,
       "panels": [],
@@ -2676,10 +2720,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages delivered to consumers. It includes messages that have been redelivered.\n\nThis metric does not include messages that have been fetched by consumers using `basic.get` (consumed by polling).\n\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -2687,7 +2727,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 42
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 14,
@@ -2761,9 +2801,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(\n  (rate(rabbitmq_channel_messages_delivered_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n  (rate(rabbitmq_channel_messages_delivered_ack_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})\n) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(\n  (rate(rabbitmq_channel_messages_delivered_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) +\n  (rate(rabbitmq_channel_messages_delivered_ack_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"})\n) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2785,6 +2831,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13139",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -2793,6 +2840,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13140",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2807,10 +2855,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages that have been redelivered to consumers. It includes messages that have been requeued automatically and redelivered due to channel exceptions or connection closures.\n\nHaving some redeliveries is expected, but if this metric is consistently non-zero, it is worth investigating why.\n\n* [Negative Acknowledgement and Requeuing of Deliveries](https://www.rabbitmq.com/confirms.html#consumer-nacks-requeue)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -2818,7 +2862,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 42
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 15,
@@ -2892,9 +2936,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_redelivered_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_redelivered_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -2902,6 +2952,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:13246",
           "colorMode": "warning",
           "fill": true,
           "line": true,
@@ -2910,6 +2961,7 @@
           "yaxis": "left"
         },
         {
+          "$$hashKey": "object:13247",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -2933,6 +2985,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13218",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -2940,6 +2993,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13219",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -2954,10 +3008,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of message deliveries to consumers that use manual acknowledgement mode.\n\nWhen this mode is used, RabbitMQ waits for consumers to acknowledge messages before more messages can be delivered.\n\nThis is the safest way of consuming messages.\n\n* [Consumer Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)\n* [Consumer Acknowledgement Modes, Prefetch and Throughput](https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -2965,7 +3015,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 30
       },
       "hiddenSeries": false,
       "id": 20,
@@ -3039,9 +3089,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_delivered_ack_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_delivered_ack_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -3063,6 +3119,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13369",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -3071,6 +3128,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13370",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -3085,10 +3143,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of message deliveries to consumers that use automatic acknowledgement mode.\n\nWhen this mode is used, RabbitMQ does not wait for consumers to acknowledge message deliveries.\n\nThis mode is fire-and-forget and does not offer any delivery safety guarantees. It tends to provide higher throughput and it may lead to consumer overload  and higher consumer memory usage.\n\n* [Consumer Acknowledgement Modes, Prefetch and Throughput](https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -3096,7 +3150,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 30
       },
       "hiddenSeries": false,
       "id": 21,
@@ -3170,9 +3224,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_delivered_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_delivered_total[3m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -3194,6 +3254,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13448",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -3202,6 +3263,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13449",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -3216,10 +3278,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of message acknowledgements coming from consumers that use manual acknowledgement mode.\n\n* [Consumer Acknowledgements](https://www.rabbitmq.com/confirms.html)\n* [Consumer Prefetch](https://www.rabbitmq.com/consumer-prefetch.html)\n* [Consumer Acknowledgement Modes, Prefetch and Throughput](https://www.rabbitmq.com/confirms.html#channel-qos-prefetch-throughput)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -3227,7 +3285,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 52
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 22,
@@ -3301,9 +3359,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_messages_acked_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_messages_acked_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -3325,6 +3389,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13527",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -3333,6 +3398,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13528",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -3347,10 +3413,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages delivered to polling consumers that use automatic acknowledgement mode.\n\nThe use of polling consumers is highly inefficient and therefore strongly discouraged.\n\n* [Fetching individual messages](https://www.rabbitmq.com/consumers.html#fetching)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -3358,7 +3420,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 52
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 24,
@@ -3396,9 +3458,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_get_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_get_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -3406,6 +3474,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:13634",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -3429,6 +3498,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13606",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -3436,6 +3506,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13607",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -3450,10 +3521,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of polling consumer operations that yield no result.\n\nAny value above zero means that RabbitMQ resources are wasted by polling consumers.\n\nCompare this metric to the other polling consumer metrics to see the inefficiency rate.\n\nThe use of polling consumers is highly inefficient and therefore strongly discouraged.\n\n* [Fetching individual messages](https://www.rabbitmq.com/consumers.html#fetching)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -3461,7 +3528,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 57
+        "y": 40
       },
       "hiddenSeries": false,
       "id": 25,
@@ -3500,9 +3567,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_get_empty_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_get_empty_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -3510,6 +3583,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:13801",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -3533,6 +3607,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13773",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -3540,6 +3615,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13774",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -3554,10 +3630,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of messages delivered to polling consumers that use manual acknowledgement mode.\n\nThe use of polling consumers is highly inefficient and therefore strongly discouraged.\n\n* [Fetching individual messages](https://www.rabbitmq.com/consumers.html#fetching)\n* [Consumers](https://www.rabbitmq.com/consumers.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -3565,7 +3637,7 @@
         "h": 5,
         "w": 12,
         "x": 12,
-        "y": 57
+        "y": 40
       },
       "hiddenSeries": false,
       "id": 23,
@@ -3603,9 +3675,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channel_get_ack_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channel_get_ack_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -3613,6 +3691,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:13886",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -3636,6 +3715,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:13858",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -3643,6 +3723,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:13859",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -3653,7 +3734,7 @@
       }
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
@@ -3662,587 +3743,609 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 62
+        "y": 45
       },
       "id": 53,
-      "panels": [],
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "Total number of queue masters  per node. \n\nThis metric makes it easy to see sub-optimal queue distribution in a cluster.\n\n* [Queue Masters, Data Locality](https://www.rabbitmq.com/ha.html#master-migration-data-locality)\n* [Queues](https://www.rabbitmq.com/queues.html)",
+          "fill": 10,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 0,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 57,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "exemplar": true,
+              "expr": "rabbitmq_queues * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [],
+          "timeRegions": [],
+          "title": "Total queues",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:5071",
+              "decimals": -1,
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:5072",
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "The rate of queue declarations performed by clients.\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
+          "fill": 10,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 12,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 58,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "exemplar": true,
+              "expr": "sum(rate(rabbitmq_queues_declared_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "$$hashKey": "object:13971",
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "gt",
+              "value": 2,
+              "yaxis": "left"
+            },
+            {
+              "$$hashKey": "object:13972",
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "gt",
+              "value": 10,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "Queues declared / s",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:13943",
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:13944",
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "The rate of new queues created (as opposed to redeclarations).\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
+          "fill": 10,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 16,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 60,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "exemplar": true,
+              "expr": "sum(rate(rabbitmq_queues_created_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "$$hashKey": "object:14062",
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "gt",
+              "value": 2,
+              "yaxis": "left"
+            },
+            {
+              "$$hashKey": "object:14063",
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "gt",
+              "value": 10,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "Queues created / s",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:14034",
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:14035",
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "description": "The rate of queues deleted.\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
+          "fill": 10,
+          "fillGradient": 0,
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 20,
+            "y": 11
+          },
+          "hiddenSeries": false,
+          "id": 59,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": false,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null as zero",
+          "options": {
+            "alertThreshold": true
+          },
+          "percentage": false,
+          "pluginVersion": "8.4.5",
+          "pointradius": 2,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
+              "color": "#56A64B"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
+              "color": "#F2CC0C"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
+              "color": "#3274D9"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
+              "color": "#A352CC"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
+              "color": "#FF780A"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
+              "color": "#96D98D"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
+              "color": "#FFEE52"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
+              "color": "#8AB8FF"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
+              "color": "#CA95E5"
+            },
+            {
+              "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
+              "color": "#FFB357"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "exemplar": true,
+              "expr": "sum(rate(rabbitmq_queues_deleted_total[10m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 1,
+              "legendFormat": "{{rabbitmq_node}}",
+              "refId": "A"
+            }
+          ],
+          "thresholds": [
+            {
+              "$$hashKey": "object:14153",
+              "colorMode": "warning",
+              "fill": true,
+              "line": true,
+              "op": "gt",
+              "value": 2,
+              "yaxis": "left"
+            },
+            {
+              "$$hashKey": "object:14154",
+              "colorMode": "critical",
+              "fill": true,
+              "line": true,
+              "op": "gt",
+              "value": 10,
+              "yaxis": "left"
+            }
+          ],
+          "timeRegions": [],
+          "title": "Queues deleted / s",
+          "tooltip": {
+            "shared": true,
+            "sort": 2,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "$$hashKey": "object:14125",
+              "format": "short",
+              "label": "",
+              "logBase": 1,
+              "min": "0",
+              "show": true
+            },
+            {
+              "$$hashKey": "object:14126",
+              "format": "short",
+              "logBase": 1,
+              "show": true
+            }
+          ],
+          "yaxis": {
+            "align": false
+          }
+        }
+      ],
       "title": "QUEUES",
       "type": "row"
     },
     {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "Total number of queue masters  per node. \n\nThis metric makes it easy to see sub-optimal queue distribution in a cluster.\n\n* [Queue Masters, Data Locality](https://www.rabbitmq.com/ha.html#master-migration-data-locality)\n* [Queues](https://www.rabbitmq.com/queues.html)",
-      "fill": 10,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 0,
-        "y": 63
-      },
-      "hiddenSeries": false,
-      "id": 57,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "rabbitmq_queues * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Total queues",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": -1,
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "The rate of queue declarations performed by clients.\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
-      "fill": 10,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 12,
-        "y": 63
-      },
-      "hiddenSeries": false,
-      "id": 58,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(rabbitmq_queues_declared_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 2,
-          "yaxis": "left"
-        },
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 10,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "Queues declared / s",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "The rate of new queues created (as opposed to redeclarations).\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
-      "fill": 10,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 16,
-        "y": 63
-      },
-      "hiddenSeries": false,
-      "id": 60,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(rabbitmq_queues_created_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 2,
-          "yaxis": "left"
-        },
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 10,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "Queues created / s",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
-      "description": "The rate of queues deleted.\n\nLow sustained values above zero are to be expected. High rates may be indicative of queue churn or high rates of connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [Queues](https://www.rabbitmq.com/queues.html)",
-      "fill": 10,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 4,
-        "x": 20,
-        "y": 63
-      },
-      "hiddenSeries": false,
-      "id": 59,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": true,
-        "max": true,
-        "min": true,
-        "rightSide": false,
-        "show": false,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "links": [],
-      "nullPointMode": "null as zero",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "8.4.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?0(\\b|\\.)/",
-          "color": "#56A64B"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?1(\\b|\\.)/",
-          "color": "#F2CC0C"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?2(\\b|\\.)/",
-          "color": "#3274D9"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?3(\\b|\\.)/",
-          "color": "#A352CC"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?4(\\b|\\.)/",
-          "color": "#FF780A"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?5(\\b|\\.)/",
-          "color": "#96D98D"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?6(\\b|\\.)/",
-          "color": "#FFEE52"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?7(\\b|\\.)/",
-          "color": "#8AB8FF"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?8(\\b|\\.)/",
-          "color": "#CA95E5"
-        },
-        {
-          "alias": "/^rabbit@[a-zA-Z\\.\\-]*?9(\\b|\\.)/",
-          "color": "#FFB357"
-        }
-      ],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate(rabbitmq_queues_deleted_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
-          "format": "time_series",
-          "instant": false,
-          "intervalFactor": 1,
-          "legendFormat": "{{rabbitmq_node}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "colorMode": "warning",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 2,
-          "yaxis": "left"
-        },
-        {
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 10,
-          "yaxis": "left"
-        }
-      ],
-      "timeRegions": [],
-      "title": "Queues deleted / s",
-      "tooltip": {
-        "shared": true,
-        "sort": 2,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": "",
-          "logBase": 1,
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
@@ -4252,7 +4355,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 68
+        "y": 46
       },
       "id": 51,
       "panels": [],
@@ -4314,7 +4417,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 69
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 54,
@@ -4450,10 +4553,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of new channels opened by applications across all connections. Channels are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of channel churn or mass connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [High Channel Churn](https://www.rabbitmq.com/channels.html#high-channel-churn)\n* [Channels](https://www.rabbitmq.com/channels.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -4461,7 +4560,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 69
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 55,
@@ -4535,9 +4634,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channels_opened_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channels_opened_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -4545,6 +4650,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:14331",
           "colorMode": "warning",
           "fill": true,
           "line": true,
@@ -4553,6 +4659,7 @@
           "yaxis": "left"
         },
         {
+          "$$hashKey": "object:14332",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -4576,6 +4683,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:14303",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -4583,6 +4691,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:14304",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -4597,10 +4706,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of channels closed by applications across all connections. Channels are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of channel churn or mass connection recovery. Confirm connection recovery rates by using the _Connections opened_ metric.\n\n* [High Channel Churn](https://www.rabbitmq.com/channels.html#high-channel-churn)\n* [Channels](https://www.rabbitmq.com/channels.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -4608,7 +4713,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 69
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 56,
@@ -4682,9 +4787,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_channels_closed_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_channels_closed_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -4692,6 +4803,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:14422",
           "colorMode": "warning",
           "fill": true,
           "line": true,
@@ -4700,6 +4812,7 @@
           "yaxis": "left"
         },
         {
+          "$$hashKey": "object:14423",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -4723,6 +4836,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:14394",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -4730,6 +4844,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:14395",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -4749,7 +4864,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 74
+        "y": 52
       },
       "id": 46,
       "panels": [],
@@ -4772,7 +4887,7 @@
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 75
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 47,
@@ -4892,10 +5007,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of new connections opened by clients. Connections are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of connection churn or mass connection recovery.\n\n* [Connection Leak](https://www.rabbitmq.com/connections.html#monitoring)\n* [Connections](https://www.rabbitmq.com/connections.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -4903,7 +5014,7 @@
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 75
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 48,
@@ -4977,7 +5088,12 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_connections_opened_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_connections_opened_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -4988,6 +5104,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:14513",
           "colorMode": "warning",
           "fill": true,
           "line": true,
@@ -4996,6 +5113,7 @@
           "yaxis": "left"
         },
         {
+          "$$hashKey": "object:14514",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -5019,6 +5137,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:14485",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -5026,6 +5145,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:14486",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -5040,10 +5160,6 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "PBFA97CFB590B2093"
-      },
       "description": "The rate of connections closed. Connections are expected to be long-lived.\n\nLow sustained values above zero are to be expected. High rates may be indicative of connection churn or mass connection recovery.\n\n* [Connections](https://www.rabbitmq.com/connections.html)",
       "fill": 10,
       "fillGradient": 0,
@@ -5051,7 +5167,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 75
+        "y": 53
       },
       "hiddenSeries": false,
       "id": 49,
@@ -5125,9 +5241,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(rabbitmq_connections_closed_total[60s]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "exemplar": true,
+          "expr": "sum(rate(rabbitmq_connections_closed_total[5m]) * on(instance) group_left(rabbitmq_cluster, rabbitmq_node) rabbitmq_identity_info{rabbitmq_cluster=\"$rabbitmq_cluster\", namespace=\"$namespace\"}) by(rabbitmq_node)",
           "format": "time_series",
           "instant": false,
+          "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{rabbitmq_node}}",
           "refId": "A"
@@ -5135,6 +5257,7 @@
       ],
       "thresholds": [
         {
+          "$$hashKey": "object:14604",
           "colorMode": "warning",
           "fill": true,
           "line": true,
@@ -5143,6 +5266,7 @@
           "yaxis": "left"
         },
         {
+          "$$hashKey": "object:14605",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -5166,6 +5290,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:14576",
           "format": "short",
           "label": "",
           "logBase": 1,
@@ -5173,6 +5298,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:14577",
           "format": "short",
           "logBase": 1,
           "show": true
@@ -5212,10 +5338,9 @@
       },
       {
         "current": {
-          "isNone": true,
           "selected": false,
-          "text": "None",
-          "value": ""
+          "text": "jx-automation",
+          "value": "jx-automation"
         },
         "datasource": {
           "type": "prometheus",
@@ -5298,8 +5423,8 @@
     ]
   },
   "timezone": "",
-  "title": "RabbitMQ-Overview",
-  "uid": "Kn5xm-gZk",
-  "version": 4,
+  "title": "RabbitMQ-Overview test",
+  "uid": "Kn5xm-gZkty",
+  "version": 8,
   "weekStart": ""
 }
